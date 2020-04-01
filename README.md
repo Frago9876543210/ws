@@ -16,7 +16,7 @@ Project tree
     └── run.php
 ```
 
-- `composer.json`:
+### `composer.json`:
 ```json
 {
   "require": {
@@ -32,7 +32,7 @@ Project tree
 }
 ```
 
-- `src/run.php`:
+### `src/run.php`:
 ```php
 <?php
 
@@ -47,7 +47,7 @@ require_once "vendor/autoload.php";
 new WebSocket(new InternetAddress("0.0.0.0", 8080), "/ws", MyListener::class);
 ```
 
-- `src/MyListener.php`:
+### `src/MyListener.php`:
 ```php
 <?php
 
