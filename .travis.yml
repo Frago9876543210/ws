@@ -1,0 +1,29 @@
+dist: bionic
+language: php
+
+php:
+  - 7.3
+
+before_script:
+  #install ext-parallel from sources
+  - git clone https://github.com/krakjoe/parallel.git
+  - cd parallel
+  - phpize
+  - ./configure --enable-parallel
+  - make
+  - make install
+  - cd ..
+  - echo "extension=parallel" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+  #install composer dependencies
+  - composer install --prefer-dist
+
+script:
+  - ./vendor/bin/phpstan analyze --no-progress
+
+cache:
+  directories:
+    - $HOME/.composer/cache/files
+    - $HOME/.composer/cache/vcs
+
+notifications:
+  email: false
