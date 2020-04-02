@@ -6,8 +6,8 @@ namespace ws;
 
 use ErrorUtils;
 use InvalidArgumentException;
-use parallel\Channel;
 use parallel\Events;
+use parallel\Events\Event;
 use pocketmine\utils\BinaryDataException;
 use pocketmine\utils\BinaryStream;
 use ws\ipc\Protocol;
@@ -44,7 +44,7 @@ class WebSocketServer{
 	/** @var Sender */
 	private $sender;
 
-	/** @var Events<Channel> */
+	/** @var Events<Event> */
 	private $events;
 
 	/** @var BinaryStream */
