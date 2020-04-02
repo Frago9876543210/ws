@@ -116,7 +116,9 @@ class Frame{
 
 		$stream->putByte($byte2);
 
-		if($u16){
+		if($u8){
+			//NOOP
+		}elseif($u16){
 			$stream->putShort($payloadLength);
 		}elseif($u64){
 			$stream->putLong($payloadLength);
